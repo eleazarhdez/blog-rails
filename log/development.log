@@ -7964,3 +7964,157 @@ Served asset /posts.js - 304 Not Modified (0ms)
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-06-26 17:42:09 +0100
 Served asset /application.js - 304 Not Modified (0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2012-07-03 21:18:25 +0100
+Connecting to database specified by database.yml
+Processing by HomeController#index as HTML
+  Rendered home/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 315ms (Views: 313.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /application.css - 200 OK (7ms)
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /comments.css - 200 OK (2ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /jquery.js - 200 OK (32ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /scaffolds.css - 200 OK (2ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /posts.css - 200 OK (2ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /home.css - 200 OK (5ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /jquery_ujs.js - 200 OK (2ms)
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /comments.js - 200 OK (2ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /home.js - 200 OK (5ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /application.js - 200 OK (9ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2012-07-03 21:18:26 +0100
+Served asset /posts.js - 200 OK (2ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2012-07-03 21:18:31 +0100
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+  Rendered posts/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 129ms (Views: 25.1ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2012-07-03 21:18:39 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.6ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mTag Load (0.2ms)[0m  [1mSELECT "tags".* FROM "tags" WHERE "tags"."post_id" = 2[0m
+  [1m[35mComment Load (0.3ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = 2 LIMIT 1[0m
+DEPRECATION WARNING: :confirm option is deprecated and will be removed from Rails 4.0. Use ':data => { :confirm => 'Text' }' instead. (called from _app_views_comments__comment_html_erb___634463361__646045408 at /home/eli/ETSII/Proyecto/blog/app/views/comments/_comment.html.erb:12)
+  Rendered comments/_comment.html.erb (31.7ms)
+  Rendered comments/_form.html.erb (58.5ms)
+  Rendered posts/show.html.erb within layouts/application (339.1ms)
+Completed 200 OK in 372ms (Views: 365.7ms | ActiveRecord: 2.9ms)
+
+
+Started DELETE "/posts/2/comments/2" for 127.0.0.1 at 2012-07-03 21:18:47 +0100
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QL4iq8NjsDuKlixQ/cGPCPMyqABud4UMSc592L1JGRY=", "post_id"=>"2", "id"=>"2"}
+Filter chain halted as #<Proc:0xa6da448@/home/eli/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.6/lib/action_controller/metal/http_authentication.rb:112> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/2/comments/2" for 127.0.0.1 at 2012-07-03 21:18:55 +0100
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"QL4iq8NjsDuKlixQ/cGPCPMyqABud4UMSc592L1JGRY=", "post_id"=>"2", "id"=>"2"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "2"]]
+  [1m[36mComment Load (0.4ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2 AND "comments"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (26.2ms)[0m  [1mDELETE FROM "comments" WHERE "comments"."id" = ?[0m  [["id", 2]]
+  [1m[35m (110.8ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 145ms (ActiveRecord: 137.7ms)
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2012-07-03 21:18:55 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.3ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "2"]]
+  [1m[35mTag Load (0.4ms)[0m  SELECT "tags".* FROM "tags" WHERE "tags"."post_id" = 2
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 2[0m
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (4.1ms)
+  Rendered posts/show.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 24ms (Views: 21.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2012-07-03 21:19:07 +0100
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.3ms)[0m  SELECT "posts".* FROM "posts" 
+  Rendered posts/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2012-07-03 21:19:08 +0100
+Processing by PostsController#new as HTML
+Filter chain halted as #<Proc:0xb2d21c40@/home/eli/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.6/lib/action_controller/metal/http_authentication.rb:112> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2012-07-03 21:19:08 +0100
+Processing by PostsController#new as HTML
+  Rendered tags/_form.html.erb (3.3ms)
+  Rendered posts/_form.html.erb (47.1ms)
+  Rendered posts/new.html.erb within layouts/application (60.3ms)
+Completed 200 OK in 99ms (Views: 98.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2012-07-03 21:19:36 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QL4iq8NjsDuKlixQ/cGPCPMyqABud4UMSc592L1JGRY=", "post"=>{"name"=>"ciruela", "title"=>"cirueleando", "content"=>"la ciruela hablando en ciruelo antiguo ", "tags_attributes"=>{"0"=>{"name"=>"ciruela"}}}, "commit"=>"Create Post"}
+Filter chain halted as #<Proc:0xb2d21c40@/home/eli/.rvm/gems/ruby-1.9.3-p194/gems/actionpack-3.2.6/lib/action_controller/metal/http_authentication.rb:112> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2012-07-03 21:19:36 +0100
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QL4iq8NjsDuKlixQ/cGPCPMyqABud4UMSc592L1JGRY=", "post"=>{"name"=>"ciruela", "title"=>"cirueleando", "content"=>"la ciruela hablando en ciruelo antiguo ", "tags_attributes"=>{"0"=>{"name"=>"ciruela"}}}, "commit"=>"Create Post"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (110.1ms)[0m  INSERT INTO "posts" ("content", "created_at", "name", "title", "updated_at") VALUES (?, ?, ?, ?, ?)  [["content", "la ciruela hablando en ciruelo antiguo "], ["created_at", Tue, 03 Jul 2012 20:19:36 UTC +00:00], ["name", "ciruela"], ["title", "cirueleando"], ["updated_at", Tue, 03 Jul 2012 20:19:36 UTC +00:00]]
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "tags" ("created_at", "name", "post_id", "updated_at") VALUES (?, ?, ?, ?)[0m  [["created_at", Tue, 03 Jul 2012 20:19:36 UTC +00:00], ["name", "ciruela"], ["post_id", 5], ["updated_at", Tue, 03 Jul 2012 20:19:36 UTC +00:00]]
+  [1m[35m (215.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/5
+Completed 302 Found in 339ms (ActiveRecord: 326.0ms)
+
+
+Started GET "/posts/5" for 127.0.0.1 at 2012-07-03 21:19:37 +0100
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "5"]]
+  [1m[35mTag Load (0.3ms)[0m  SELECT "tags".* FROM "tags" WHERE "tags"."post_id" = 5
+  [1m[36mComment Load (0.3ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = 5[0m
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (41.8ms)
+  Rendered posts/show.html.erb within layouts/application (47.4ms)
+Completed 200 OK in 61ms (Views: 56.8ms | ActiveRecord: 0.8ms)
